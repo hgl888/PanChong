@@ -14,13 +14,13 @@ public class DataTableUtil {
 
 	private final static int NUM = 5;
 
-	// Òª×¥È¡µÄ±í¸ñ¿ÉÄÜ³öÏÖµÄÊôĞÔÃû
-	// static String[] Propertys={"ÆóÒµÃû³Æ","×¢²áºÅ/Í³Ò»Éç»áĞÅÓÃ´úÂë","±»ÁĞÈë¾­ÓªÒì³£ÃûÂ¼ÈÕÆÚ"};
-	static String[] Propertys = { "µØ¿é±àºÅ", "×ÚµØ±àºÅ", "µØ¿éÎ»ÖÃ", "ÓÃµØĞÔÖÊ", "¹æ»®Ãæ»ı",
-			"³öÈÃÃæ»ı", "·¢²¼Ê±¼ä", "¹ÒÅÆÆğÊ¼¼Û", "Î»ÖÃ", "½»Ò×Ê±¼ä", "Ãæ»ı", "¹æ»®ÓÃÍ¾", "Èİ»ıÂÊ", "Æğ¼Û",
-			"³É½»¼Û", "½»Ò×·½Ê½", "¾ºµÃÈË" };
+	// è¦æŠ“å–çš„è¡¨æ ¼å¯èƒ½å‡ºç°çš„å±æ€§å
+	// static String[] Propertys={"ä¼ä¸šåç§°","æ³¨å†Œå·/ç»Ÿä¸€ç¤¾ä¼šä¿¡ç”¨ä»£ç ","è¢«åˆ—å…¥ç»è¥å¼‚å¸¸åå½•æ—¥æœŸ"};
+	static String[] Propertys = { "åœ°å—ç¼–å·", "å®—åœ°ç¼–å·", "åœ°å—ä½ç½®", "ç”¨åœ°æ€§è´¨", "è§„åˆ’é¢ç§¯",
+			"å‡ºè®©é¢ç§¯", "å‘å¸ƒæ—¶é—´", "æŒ‚ç‰Œèµ·å§‹ä»·", "ä½ç½®", "äº¤æ˜“æ—¶é—´", "é¢ç§¯", "è§„åˆ’ç”¨é€”", "å®¹ç§¯ç‡", "èµ·ä»·",
+			"æˆäº¤ä»·", "äº¤æ˜“æ–¹å¼", "ç«å¾—äºº" };
 
-	// È¡×îÀïÃæµÄtable½øÈëisValueElement·½·¨¼ì²âÊÇ²»ÊÇÎÒÃÇĞèÒªµÄtable
+	// å–æœ€é‡Œé¢çš„tableè¿›å…¥isValueElementæ–¹æ³•æ£€æµ‹æ˜¯ä¸æ˜¯æˆ‘ä»¬éœ€è¦çš„table
 	public static List<TableElement> getFitElement(Document document) {
 		if (Propertys != null) {
 			Element element = document.getElementsByTag("body").get(0);
@@ -96,7 +96,7 @@ public class DataTableUtil {
 	}
 
 	private static boolean isValueElements(String[] Propertys,
-			List<Element> trElements) {
+										   List<Element> trElements) {
 		int index = 0;
 		int size = trElements.size();
 		for (int i = 0; i < size; i++) {
@@ -151,26 +151,26 @@ public class DataTableUtil {
 		return false;
 	}
 
-	// Çå³ı»ñÈ¡µÄĞÅÏ¢±êÌâÉÏµÄµ¥Î»¼°Ò»Ğ©×Ö·ûÌá¸ßÆ¥ÅäµÄÏàËÆ¶È
+	// æ¸…é™¤è·å–çš„ä¿¡æ¯æ ‡é¢˜ä¸Šçš„å•ä½åŠä¸€äº›å­—ç¬¦æé«˜åŒ¹é…çš„ç›¸ä¼¼åº¦
 	public static String adjuestmentParm(String parm) {
 		if (regual("\\(", parm)) {
 			parm = parm.substring(0, parm.indexOf("("));
-		} else if (regual("£¨", parm)) {
-			parm = parm.substring(0, parm.indexOf("£¨"));
-		} else if (regual("ÍòÔª", parm)) {
-			parm = parm.substring(0, parm.indexOf("ÍòÔª"));
-		} else if (regual("Ä¶", parm)) {
-			parm = parm.substring(0, parm.indexOf("Ä¶"));
-		} else if (regual("¹«Çê", parm)) {
-			parm = parm.substring(0, parm.indexOf("¹«Çê"));
-		} else if (regual("Ã×", parm)) {
-			parm = parm.substring(0, parm.indexOf("Ã×"));
+		} else if (regual("ï¼ˆ", parm)) {
+			parm = parm.substring(0, parm.indexOf("ï¼ˆ"));
+		} else if (regual("ä¸‡å…ƒ", parm)) {
+			parm = parm.substring(0, parm.indexOf("ä¸‡å…ƒ"));
+		} else if (regual("äº©", parm)) {
+			parm = parm.substring(0, parm.indexOf("äº©"));
+		} else if (regual("å…¬é¡·", parm)) {
+			parm = parm.substring(0, parm.indexOf("å…¬é¡·"));
+		} else if (regual("ç±³", parm)) {
+			parm = parm.substring(0, parm.indexOf("ç±³"));
 		}
 		return parm;
 	}
 
 	private static TableElement isValueElement(String[] Propertys,
-			Element element) {
+											   Element element) {
 		TableElement tableElement = new TableElement();
 		List<Element> propertyElements = new ArrayList<Element>();
 		Elements tdElements = element.getElementsByTag("td");

@@ -16,14 +16,14 @@ public class SimFeatureUtil {
 
 
 	public static int ld(String str1, String str2) {
-		int d[][]; // ¾ØÕó
+		int d[][]; // çŸ©é˜µ
 		int n = str1.length();
 		int m = str2.length();
-		int i; // ±éÀústr1µÄ
-		int j; // ±éÀústr2µÄ
-		char ch1; // str1µÄ
-		char ch2; // str2µÄ
-		int temp; // ¼ÇÂ¼ÏàÍ¬×Ö·û,ÔÚÄ³¸ö¾ØÕóÎ»ÖÃÖµµÄÔöÁ¿,²»ÊÇ0¾ÍÊÇ1
+		int i; // éå†str1çš„
+		int j; // éå†str2çš„
+		char ch1; // str1çš„
+		char ch2; // str2çš„
+		int temp; // è®°å½•ç›¸åŒå­—ç¬¦,åœ¨æŸä¸ªçŸ©é˜µä½ç½®å€¼çš„å¢é‡,ä¸æ˜¯0å°±æ˜¯1
 		if (n == 0) {
 			return m;
 		}
@@ -31,15 +31,15 @@ public class SimFeatureUtil {
 			return n;
 		}
 		d = new int[n + 1][m + 1];
-		for (i = 0; i <= n; i++) { // ³õÊ¼»¯µÚÒ»ÁĞ
+		for (i = 0; i <= n; i++) { // åˆå§‹åŒ–ç¬¬ä¸€åˆ—
 			d[i][0] = i;
 		}
-		for (j = 0; j <= m; j++) { // ³õÊ¼»¯µÚÒ»ĞĞ
+		for (j = 0; j <= m; j++) { // åˆå§‹åŒ–ç¬¬ä¸€è¡Œ
 			d[0][j] = j;
 		}
-		for (i = 1; i <= n; i++) { // ±éÀústr1
+		for (i = 1; i <= n; i++) { // éå†str1
 			ch1 = str1.charAt(i - 1);
-			// È¥Æ¥Åästr2
+			// å»åŒ¹é…str2
 			for (j = 1; j <= m; j++) {
 				ch2 = str2.charAt(j - 1);
 				if (ch1 == ch2) {
@@ -47,7 +47,7 @@ public class SimFeatureUtil {
 				} else {
 					temp = 1;
 				}
-				// ×ó±ß+1,ÉÏ±ß+1, +tempÈ¡×îĞ¡
+				// å·¦è¾¹+1,ä¸Šè¾¹+1, +tempå–æœ€å°
 				d[i][j] = min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1]+ temp);
 			}
 		}
@@ -63,5 +63,5 @@ public class SimFeatureUtil {
 	}
 
 
-	
+
 }
