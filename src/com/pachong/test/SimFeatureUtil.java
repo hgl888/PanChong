@@ -1,4 +1,4 @@
-package com.panchong.test;
+package com.pachong.test;
 
 public class SimFeatureUtil {
 

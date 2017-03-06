@@ -1,4 +1,4 @@
-package com.panchong.test;
+package com.pachong.test;
 
 import java.util.ArrayList;
 import java.util.List;
